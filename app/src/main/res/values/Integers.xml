@@ -2,5 +2,5 @@
 <resources>
     <integer name="fake_muscle_group_id">9999</integer>
 
-    <integer name="ad_refresh_rate">1000</integer>
+
 </resources>
