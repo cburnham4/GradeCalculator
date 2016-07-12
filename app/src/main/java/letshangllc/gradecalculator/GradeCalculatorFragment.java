@@ -4,6 +4,8 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,11 +48,16 @@ public class GradeCalculatorFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_grade_calculator, container, false);
 
         flexGroup = (ViewGroup) view.findViewById(R.id.flexGrades);
-        addSection = (Button) view.findViewById(R.id.btnAddSection);
-        btnCalculateGrade = (Button) view.findViewById(R.id.btnCalculateGrade);
+//        addSection = (Button) view.findViewById(R.id.btnAddSection);
+//        btnCalculateGrade = (Button) view.findViewById(R.id.btnCalculateGrade);
         tvGrade = (TextView) view.findViewById(R.id.tvGrade);
 
-        setListeners();
+        //setListeners();
+
+        sections = 0;
+        for(int i = 0; i<10; i++){
+            addGradeView();
+        }
         return view;
     }
 
@@ -60,6 +67,7 @@ public class GradeCalculatorFragment extends Fragment {
         sections++;
         etGrade = (EditText) gradeView.findViewById(R.id.etGrade);
         etWeight = (EditText) gradeView.findViewById(R.id.etWeight);
+        etWeight.addTextChangedListener(new GradeTextWatcher());
         tvSectionNum = (TextView) gradeView.findViewById(R.id.tvSection);
 
         tvSectionNum.setText(String.format(Locale.getDefault(), "%01d", sections));
@@ -83,26 +91,30 @@ public class GradeCalculatorFragment extends Fragment {
 
         }
         if(!(weightSum>0.99 && weightSum<1.01)){
-            Toast.makeText(this.getContext(), "The weighted grades do not add to 100", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this.getContext(), "The weighted grades do not add to 100", Toast.LENGTH_SHORT).show();
         }else{
             tvGrade.setText(String.format(Locale.getDefault(), "GRADE: %.2f", gradeTotal*100));
         }
         Log.i(TAG, "GRADE: " +gradeTotal);
     }
 
-    private void setListeners(){
-        addSection.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                addGradeView();
-            }
-        });
-        btnCalculateGrade.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calculateGrade();
-            }
-        });
+
+    class GradeTextWatcher implements TextWatcher{
+
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            calculateGrade();
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+
+        }
     }
 
     @Override
