@@ -85,8 +85,11 @@
             </LinearLayout>
 
             <Button
+                android:layout_margin="16dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="@string/calculate"
+                android:id="@+id/btnCalculateGrade"/>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

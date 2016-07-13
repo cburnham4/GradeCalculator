@@ -49,9 +49,16 @@ public class GradeCalculatorFragment extends Fragment {
 
         flexGroup = (ViewGroup) view.findViewById(R.id.flexGrades);
 //        addSection = (Button) view.findViewById(R.id.btnAddSection);
-//        btnCalculateGrade = (Button) view.findViewById(R.id.btnCalculateGrade);
+        btnCalculateGrade = (Button) view.findViewById(R.id.btnCalculateGrade);
         tvGrade = (TextView) view.findViewById(R.id.tvGrade);
 
+
+        btnCalculateGrade.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                calculateGrade();
+            }
+        });
         //setListeners();
 
         sections = 0;
@@ -67,7 +74,7 @@ public class GradeCalculatorFragment extends Fragment {
         sections++;
         etGrade = (EditText) gradeView.findViewById(R.id.etGrade);
         etWeight = (EditText) gradeView.findViewById(R.id.etWeight);
-        etWeight.addTextChangedListener(new GradeTextWatcher());
+        //etWeight.addTextChangedListener(new GradeTextWatcher());
         tvSectionNum = (TextView) gradeView.findViewById(R.id.tvSection);
 
         tvSectionNum.setText(String.format(Locale.getDefault(), "%01d", sections));
@@ -91,7 +98,7 @@ public class GradeCalculatorFragment extends Fragment {
 
         }
         if(!(weightSum>0.99 && weightSum<1.01)){
-            //Toast.makeText(this.getContext(), "The weighted grades do not add to 100", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this.getContext(), "The weighted grades do not add to 100", Toast.LENGTH_SHORT).show();
         }else{
             tvGrade.setText(String.format(Locale.getDefault(), "GRADE: %.2f", gradeTotal*100));
         }
