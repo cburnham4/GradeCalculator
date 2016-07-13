@@ -21,4 +21,8 @@
     <string name="overall_grade">Overall Grade</string>
     <string name="find_needed_to_pass">Calculate What You Need</string>
 
+    <string name="gpa">GPA:</string>
+    <string name="hours">Hours</string>
+    <string name="letter_grade">Letter Grade</string>
+
 </resources>

@@ -1,13 +1,294 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="letshangllc.gradecalculator.GPAFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!-- GPA Title -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/linGrade">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/grade_txtsz"
+            android:text="@string/gpa"
+            android:gravity="center"
+            android:id="@+id/tvGPA"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/primary"/>
+    </LinearLayout>
+
+    <!-- Section titles -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/section_num"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/top_labels_txtsz"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hours"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/top_labels_txtsz"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/letter_grade"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/top_labels_txtsz"/>
+
+    </LinearLayout>
+
+    <!-- Grade 1 -->
+    <LinearLayout
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:layout_weight="1"
+            android:gravity="center"/>
+
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etHours1"
+            android:inputType="numberDecimal"
+            android:layout_weight="1"
+            android:gravity="center"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etLetterGrade1"
+            android:inputType="textCapCharacters"
+            android:layout_weight="1"
+            android:maxLength="2"
+            android:gravity="center"
+            />
+    </LinearLayout>
+
+    <!-- Grade 2 -->
+    <LinearLayout
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2"
+            android:layout_weight="1"
+            android:gravity="center"/>
+
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etHours2"
+            android:inputType="numberDecimal"
+            android:layout_weight="1"
+            android:gravity="center"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etLetterGrade2"
+            android:inputType="textCapCharacters"
+            android:layout_weight="1"
+            android:maxLength="2"
+            android:gravity="center"
+            />
+    </LinearLayout>
+
+    <!-- Grade 3 -->
+    <LinearLayout
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:layout_weight="1"
+            android:gravity="center"/>
+
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etHours3"
+            android:inputType="numberDecimal"
+            android:layout_weight="1"
+            android:gravity="center"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etLetterGrade3"
+            android:inputType="textCapCharacters"
+            android:layout_weight="1"
+            android:maxLength="2"
+            android:gravity="center"
+            />
+    </LinearLayout>
+
+    <!-- Grade 4 -->
+    <LinearLayout
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4"
+            android:layout_weight="1"
+            android:gravity="center"/>
+
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etHours4"
+            android:inputType="numberDecimal"
+            android:layout_weight="1"
+            android:gravity="center"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etLetterGrade4"
+            android:inputType="textCapCharacters"
+            android:layout_weight="1"
+            android:maxLength="2"
+            android:gravity="center"
+            />
+    </LinearLayout>
+
+    <!-- Grade 5 -->
+    <LinearLayout
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:layout_weight="1"
+            android:gravity="center"/>
+
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etHours5"
+            android:inputType="numberDecimal"
+            android:layout_weight="1"
+            android:gravity="center"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etLetterGrade5"
+            android:inputType="textCapCharacters"
+            android:layout_weight="1"
+            android:maxLength="2"
+            android:gravity="center"
+            />
+    </LinearLayout>
+
+    <!-- Grade 6 -->
+    <LinearLayout
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6"
+            android:layout_weight="1"
+            android:gravity="center"/>
+
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etHours6"
+            android:inputType="numberDecimal"
+            android:layout_weight="1"
+            android:gravity="center"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etLetterGrade6"
+            android:inputType="textCapCharacters"
+            android:layout_weight="1"
+            android:maxLength="2"
+            android:gravity="center"
+            />
+    </LinearLayout>
+
+    <!-- Grade 7 -->
+    <LinearLayout
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7"
+            android:layout_weight="1"
+            android:gravity="center"/>
+
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etHours7"
+            android:inputType="numberDecimal"
+            android:layout_weight="1"
+            android:gravity="center"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etLetterGrade7"
+            android:inputType="textCapCharacters"
+            android:layout_weight="1"
+            android:maxLength="2"
+            android:gravity="center"
+            />
+    </LinearLayout>
+
+    <Button
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-</FrameLayout>
+        android:id="@+id/btnCalculateGPA"/>
+</LinearLayout>
