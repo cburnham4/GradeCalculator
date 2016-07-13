@@ -55,7 +55,7 @@ public class GradeCalculatorFragment extends Fragment {
         //setListeners();
 
         sections = 0;
-        for(int i = 0; i<10; i++){
+        for(int i = 0; i<7; i++){
             addGradeView();
         }
         return view;
