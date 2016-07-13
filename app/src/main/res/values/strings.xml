@@ -3,10 +3,20 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="results">Results</string>
 
     <!-- Section items -->
     <string name="grade_percent">Grade (Percent)</string>
     <string name="section_num">Section #</string>
     <string name="weight_percent">Weight (Percent)</string>
     <string name="grade">GRADE: </string>
+
+    <!-- Final GRade -->
+    <string name="current_grade">Current Grade</string>
+    <string name="final_grade_weight">Final Grade Weight</string>
+    <string name="grade_wanted">Final grade I want is</string>
+    <string name="what_if_grade">What if I get</string>
+    <string name="final_grade">Final Grade</string>
+    <string name="overall_grade">Overall Grade</string>
+    <string name="find_needed_to_pass">Calculate What You Need</string>
 </resources>
