@@ -1,5 +1,6 @@
 package letshangllc.gradecalculator;
 
+import android.os.Handler;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -79,5 +80,26 @@ public class MainActivity extends AppCompatActivity {
             return mFragmentTitleList.get(position);
         }
     }
+
+    private AdsHelper adsHelper;
+    private Handler handler = new Handler();
+
+    private Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+      /* do what you need to do */
+            adsHelper.refreshAd();
+      /* and here comes the "trick" */
+            handler.postDelayed(this, getResources().getInteger(R.integer.ad_refresh_rate));
+        }
+    };
+
+
+    private void runAds(){
+        adsHelper =  new AdsHelper(this.getWindow().getDecorView(), getResources().getString(R.string.admob_id), this);
+        adsHelper.setUpAds();
+        handler.postDelayed(runnable, 100);
+    }
+
 }
 
