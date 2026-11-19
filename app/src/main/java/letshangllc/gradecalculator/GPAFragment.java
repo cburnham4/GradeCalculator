@@ -1,8 +1,6 @@
 package letshangllc.gradecalculator;
 
-
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,18 +8,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import java.util.Locale;
 
-
 public class GPAFragment extends Fragment {
-    private final static String TAG = GPAFragment.class.getSimpleName();
 
-    /* Views */
     private TextView tvGPA;
-    private EditText etHours1, etHours2, etHours3, etHours4, etHours5 ,etHours6, etHours7;
     private EditText[] etHours;
-    private EditText etLetterGrade1, etLetterGrade2, etLetterGrade3, etLetterGrade4, etLetterGrade5,
-            etLetterGrade6, etLetterGrade7;
     private EditText[] etLetterGrades;
     private Button btnCalculateGPA;
 
@@ -29,70 +25,68 @@ public class GPAFragment extends Fragment {
         // Required empty public constructor
     }
 
-
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_gpa, container, false);
-
-        this.findViews(view);
-        this.setupViews();
+        findViews(view);
+        setupViews();
         return view;
     }
 
-    private void findViews(View view){
-        tvGPA = (TextView) view.findViewById(R.id.tvGPA);
+    private void findViews(View view) {
+        tvGPA = view.findViewById(R.id.tvGPA);
 
-        etHours1 = (EditText) view.findViewById(R.id.etHours1);
-        etHours2 = (EditText) view.findViewById(R.id.etHours2);
-        etHours3 = (EditText) view.findViewById(R.id.etHours3);
-        etHours4 = (EditText) view.findViewById(R.id.etHours4);
-        etHours5 = (EditText) view.findViewById(R.id.etHours5);
-        etHours6 = (EditText) view.findViewById(R.id.etHours6);
-        etHours7 = (EditText) view.findViewById(R.id.etHours7);
+        etHours = new EditText[]{
+                view.findViewById(R.id.etHours1),
+                view.findViewById(R.id.etHours2),
+                view.findViewById(R.id.etHours3),
+                view.findViewById(R.id.etHours4),
+                view.findViewById(R.id.etHours5),
+                view.findViewById(R.id.etHours6),
+                view.findViewById(R.id.etHours7)
+        };
 
-        etHours = new EditText[]{etHours1,etHours2,etHours3,etHours4,etHours5,etHours6,etHours7};
+        etLetterGrades = new EditText[]{
+                view.findViewById(R.id.etLetterGrade1),
+                view.findViewById(R.id.etLetterGrade2),
+                view.findViewById(R.id.etLetterGrade3),
+                view.findViewById(R.id.etLetterGrade4),
+                view.findViewById(R.id.etLetterGrade5),
+                view.findViewById(R.id.etLetterGrade6),
+                view.findViewById(R.id.etLetterGrade7)
+        };
 
-        etLetterGrade1 = (EditText) view.findViewById(R.id.etLetterGrade1);
-        etLetterGrade2 = (EditText) view.findViewById(R.id.etLetterGrade2);
-        etLetterGrade3 = (EditText) view.findViewById(R.id.etLetterGrade3);
-        etLetterGrade4 = (EditText) view.findViewById(R.id.etLetterGrade4);
-        etLetterGrade5 = (EditText) view.findViewById(R.id.etLetterGrade5);
-        etLetterGrade6 = (EditText) view.findViewById(R.id.etLetterGrade6);
-        etLetterGrade7 = (EditText) view.findViewById(R.id.etLetterGrade7);
-
-        etLetterGrades = new EditText[]{etLetterGrade1, etLetterGrade2, etLetterGrade3, etLetterGrade4,
-                etLetterGrade5, etLetterGrade6, etLetterGrade7};
-
-        btnCalculateGPA = (Button) view.findViewById(R.id.btnCalculateGPA);
+        btnCalculateGPA = view.findViewById(R.id.btnCalculateGPA);
     }
 
-    private void setupViews(){
-        btnCalculateGPA.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calculateGPA();
-            }
-        });
+    private void setupViews() {
+        btnCalculateGPA.setOnClickListener(view -> calculateGPA());
     }
-    private void calculateGPA(){
-        double totalHours= 0;
+
+    private void calculateGPA() {
+        double totalHours = 0;
         double totalGPA = 0;
-        for (int i = 0 ; i<etLetterGrades.length; i++){
-            EditText etHour= etHours[i];
+        for (int i = 0; i < etLetterGrades.length; i++) {
+            EditText etHour = etHours[i];
             EditText etLetterGrade = etLetterGrades[i];
             String hourString = etHour.getText().toString().trim();
-            String letterGrade = etLetterGrade.getText().toString().trim().toUpperCase();
-            if(!(hourString.isEmpty()|| letterGrade.isEmpty())){
-                double hours  = Double.parseDouble(hourString);
+            String letterGrade = etLetterGrade.getText().toString().trim().toUpperCase(Locale.US);
+            if (!(hourString.isEmpty() || letterGrade.isEmpty())) {
+                double hours = Double.parseDouble(hourString);
                 totalHours += hours;
                 double gpa = getGPA(letterGrade);
-                totalGPA += gpa*hours;
+                totalGPA += gpa * hours;
             }
         }
 
-        double GPA = totalGPA/totalHours;
+        if (totalHours <= 0) {
+            tvGPA.setText(getString(R.string.gpa));
+            return;
+        }
+
+        double GPA = totalGPA / totalHours;
         tvGPA.setText(String.format(Locale.getDefault(), "GPA: %.2f", GPA));
     }
 
@@ -124,8 +118,8 @@ public class GPAFragment extends Fragment {
                 return 0.7;
             case "F":
                 return 0;
+            default:
+                return 0;
         }
-        return 0;
-
     }
 }

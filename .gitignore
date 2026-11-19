@@ -7,3 +7,11 @@
 /build
 /captures
 /app/src/main/res/values/keys.xml
+keystore.properties
+*.jks
+*.keystore
+.kotlin/
+.cxx/
+app/build/
+*.apk
+*.aab

@@ -285,8 +285,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/calculate"
-                android:id="@+id/btnCalculateFinal"
-                android:onClick="calculateOnClick"/>
+                android:id="@+id/btnCalculateFinal"/>
 
 
         </LinearLayout>

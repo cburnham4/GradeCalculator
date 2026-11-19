@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    PRODUCTION AdMob IDs for Grade Calculator (letshangllc.gradecalculator)
+
+    Publisher ID: ca-app-pub-8223005482588566
+    Source: AdMob console export (admob-ids.csv)
+
+    Ad Unit Mapping:
+    ================
+    Screen / slot              | AdMob unit name   | Resource
+    MainActivity bottom banner | Banner Ad Main    | admob_banner_unit_id
+
+    Debug builds override these with Google test IDs via
+    app/src/debug/res/values/admob_ids.xml
+-->
+<resources>
+    <string name="admob_app_id" translatable="false">ca-app-pub-8223005482588566~5099770332</string>
+    <string name="admob_banner_unit_id" translatable="false">ca-app-pub-8223005482588566/6576503538</string>
+</resources>
