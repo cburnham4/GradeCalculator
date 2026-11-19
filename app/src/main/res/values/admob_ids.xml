@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    PRODUCTION AdMob IDs for Grade Calculator (letshangllc.gradecalculator)
+
+    Publisher ID: ca-app-pub-8223005482588566
+
+    Real unit IDs / the app ID suffix were not in this repository (historically
+    gitignored in keys.xml). Do NOT invent IDs — replace the TODO placeholders
+    below with values from AdMob / Play Console before shipping a release build.
+
+    Debug builds override these with Google's official test IDs via
+    app/src/debug/res/values/admob_ids.xml
+-->
+<resources>
+    <!-- TODO: Replace with real AdMob App ID: ca-app-pub-8223005482588566~XXXXXXXXXX -->
+    <string name="admob_app_id" translatable="false">ca-app-pub-8223005482588566~TODO_APP_ID</string>
+
+    <!-- TODO: Replace with real banner ad unit ID: ca-app-pub-8223005482588566/XXXXXXXXXX -->
+    <string name="admob_banner_unit_id" translatable="false">ca-app-pub-8223005482588566/TODO_BANNER_UNIT_ID</string>
+</resources>
